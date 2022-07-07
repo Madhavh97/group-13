@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+// this contains root information
 const routes: Routes = [];
 
 @NgModule({
