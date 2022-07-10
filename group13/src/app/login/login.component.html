@@ -1,22 +1,51 @@
-
-<body><section class='login' id='login' style="width: 400px;">
-    
-    <div class='head'>
-    <h1 class='company'>SHOP FOR HOME</h1>
+<app-header></app-header>
+<div class="container-fluid" style="background-color: aliceblue; height: 79vh">
+  <div class="row">
+    <div class="col-sm-4 mx-auto">
+      <div class="card shadow" style="margin-top: 80px">
+        <div class="card-header bg-white">
+          <h4>Customer Login</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="fg" (submit)="validate(fg.value)" novalidate>
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="userid"
+                required
+                name="userid"
+                placeholder="User Id"
+                class="form-control"
+              />
+              <small
+                class="form-text text-danger"
+                *ngIf="submitted && !fg.controls['userid'].valid"
+                >User id must be given</small
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                formControlName="pwd"
+                required
+                name="password"
+                placeholder="Password"
+                class="form-control"
+              />
+              <small
+                class="form-text text-danger"
+                *ngIf="submitted && !fg.controls['pwd'].valid"
+                >Password must be given</small
+              >
+            </div>
+            <input
+              type="submit"
+              value="Sign In"
+              class="btn btn-primary btn-block"
+            />
+          </form>
+        </div>
+      </div>
     </div>
-    <p class='msg'>Welcome back</p>
-    <div class='form'>
-      <form>
-    <input type="text" placeholder='Username' class='text' id='username' required><br>
-    <input type="password" placeholder='••••••••••••••' class='password'><br>
-    <a href="#" class='btn-login' id='do-login'>Login</a>
-    <a href="#" class='forgot'>Forgot?</a>
-      </form><br>
-      <strong style="padding-top: 30px;">  New User?</strong><br>
-      <button routerLink="/register" class="login" style="padding:5px;">
-        <span>Register Here</span>
-    </button>
-    </div>
-  </section>
-  </body>
-  
+  </div>
+</div>
